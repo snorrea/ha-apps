@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.4
+
+- Add Rising Topics to the Lurker dashboard
+
 ## 0.3.3
 
 - Show release notes in Home Assistant, load Latest images promptly, and share wordclouds
