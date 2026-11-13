@@ -1,5 +1,5 @@
 name: Lurker
-version: "0.3.2"
+version: "0.3.3"
 slug: lurker
 description: Scrape 4chan boards on a schedule and browse sentiment wordclouds in Home Assistant.
 url: https://github.com/snorrea/ha-apps/tree/main/lurker
@@ -16,6 +16,17 @@ startup: application
 boot: auto
 # Needed only for calling opted-in mobile notifications through the Core API proxy.
 homeassistant_api: true
+# Stop the app while Supervisor copies the history database and its sidecars.
+backup: cold
+backup_exclude:
+  - output/cache/*/catalog.json
+  - output/cache/*/[0-9]*.json
+  - output/cache/*/.*.json.*.tmp
+  - output/cache/nlp-features.sqlite3
+  - output/cache/nlp-features.sqlite3-journal
+  - output/cache/nlp-features.sqlite3-wal
+  - output/cache/nlp-features.sqlite3-shm
+  - output/render-cache
 options:
   boards:
     - biz
@@ -24,6 +35,7 @@ options:
   retention_days: 30
   history_retention_days: 180
   history_max_topics: 1500
+  nlp_cache_max_mib: 128
   max_threads: 200
   request_delay_ms: 1100
   scrape_timeout_seconds: 10800
@@ -38,6 +50,7 @@ schema:
   history_retention_days: int(1,3650)
   # 0 stores every term; a positive cap bounds SQLite writes per focus/run.
   history_max_topics: int(0,10000)
+  nlp_cache_max_mib: int(1,)
   max_threads: int(1,500)
   # Values below 1100 are raised to 1100 (4chan API limit: 1 request/second).
   request_delay_ms: int(0,10000)
