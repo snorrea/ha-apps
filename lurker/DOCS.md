@@ -57,6 +57,27 @@ timestamps are available. A new complete scrape is needed after upgrading.
 
 Existing wordclouds and options are kept. History starts with the first 0.3 scrape; older summaries are not imported. Topic storage defaults to 1500 terms per focus per scrape (`history_max_topics: 0` stores all). The analytics database is included in app backups; lower `history_retention_days` or `history_max_topics` if it grows too large.
 
+## History database upgrades and rollback
+
+Lurker migrates its existing history database on startup. Schema v7 adds
+scheduled scrape timing. Older Lurker releases that support schema v6 or
+earlier cannot open the migrated database.
+
+Before upgrading, keep a backup that includes Lurker. In **Settings → System →
+Backups → App update backups**, choose **Backup before update**, or create a
+manual backup that includes the app.
+
+If you need to roll back, turn off **Automatic updates** for Lurker. Open
+**Settings → System → Backups → Show all backups**, select the backup from
+before the upgrade, select **Lurker** as the only item to restore, and choose
+**Restore**. Keep access to the private GHCR registry so Home Assistant can
+pull the older image if needed. After restoring, check the installed version
+and open Analytics to verify your history. The restore replaces Lurker's
+options and history with the backup's contents. Scrapes made after the backup
+are absent from the restored history.
+
+[Home Assistant backup and restore instructions](https://www.home-assistant.io/common-tasks/general/backups/)
+
 ## Troubleshooting
 
 Check Settings → System → Logs → Supervisor for repository or image-pull errors. Renew the GHCR token before it expires.
@@ -77,6 +98,10 @@ alongside each new historical snapshot. On Home Assistant restart it also
 records scheduled scraping slots missed during downtime as gaps; no missing
 topic values are substituted with zero. SQLite schema migrations preserve
 existing historical data. Keep /data/output/history.sqlite3 during upgrades.
+
+Upgrades that leave the measurement rules and inputs equivalent can continue
+using earlier samples in charts and Rising Topics. This includes the verified
+v0.3.4–v0.3.6 releases when their sampling and analysis settings match.
 
 
 ## Storage and concurrency (v0.3+)
