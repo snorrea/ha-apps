@@ -22,7 +22,7 @@ Lurker spaces API requests at least 1.1 seconds apart across boards, including r
 
 | Option | Default | Meaning |
 | --- | --- | --- |
-| boards | biz, pol | Boards to sample each cycle |
+| boards | `biz - Business & Finance`, `pol - Politically Incorrect` | Boards to sample each cycle |
 | interval_hours | 6 | Hours between scrape cycles |
 | retention_days | 30 | Keep wordcloud images and summaries this long |
 | history_retention_days | 180 | Keep analytics snapshots this long (the database file is kept) |
@@ -35,9 +35,18 @@ Lurker spaces API requests at least 1.1 seconds apart across boards, including r
 
 The workers option from 0.2 is deprecated and ignored.
 
+In **Configuration**, choose boards by code and name, for example `b - Random`.
+Saved short codes still work. The dashboard displays the codes. An empty
+selection stops scheduled board collection.
+
 ## Analytics
 
 The Analytics section charts a topic's mentions per 1,000 sampled posts and its sentiment (−1 to +1) over 7, 30 or 90 days or all history. Summary cards show the latest absolute frequency, normalized rate, robust sentiment and observation count. Gaps mean no data: failed scrapes and partial samples are marked rather than shown as zero.
+
+Use **View threads** on a Rising Topics card to see the top three contributing
+threads and their shares of matching posts in the latest sample. Lurker shows
+how many of those posts were created since the previous complete scrape when
+timestamps are available. A new complete scrape is needed after upgrading.
 
 ## Upgrading from 0.2
 

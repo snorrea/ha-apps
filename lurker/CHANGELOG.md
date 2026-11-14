@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.5
+
+- Maintenance and reliability updates.
+
 ## 0.3.4
 
 - Add Rising Topics to the Lurker dashboard

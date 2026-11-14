@@ -1,0 +1,4 @@
+configuration:
+  boards:
+    name: Boards
+    description: Choose boards by code and name. Existing short codes are also accepted.
