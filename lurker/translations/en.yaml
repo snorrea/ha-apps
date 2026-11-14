@@ -1,4 +1,4 @@
 configuration:
-  boards:
+  selected_boards:
     name: Boards
-    description: Choose boards by code and name. Existing short codes are also accepted.
+    description: Choose boards by code and name, for example b - Random.

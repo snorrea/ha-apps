@@ -22,7 +22,7 @@ Lurker spaces API requests at least 1.1 seconds apart across boards, including r
 
 | Option | Default | Meaning |
 | --- | --- | --- |
-| boards | `biz - Business & Finance`, `pol - Politically Incorrect` | Boards to sample each cycle |
+| selected_boards | `biz - Business & Finance`, `pol - Politically Incorrect` | Boards to sample each cycle |
 | interval_hours | 6 | Hours between scrape cycles |
 | retention_days | 30 | Keep wordcloud images and summaries this long |
 | history_retention_days | 180 | Keep analytics snapshots this long (the database file is kept) |
@@ -36,8 +36,13 @@ Lurker spaces API requests at least 1.1 seconds apart across boards, including r
 The workers option from 0.2 is deprecated and ignored.
 
 In **Configuration**, choose boards by code and name, for example `b - Random`.
-Saved short codes still work. The dashboard displays the codes. An empty
-selection stops scheduled board collection.
+Lurker converts saved board lists to labels on first start after upgrading.
+Reload Configuration to see the converted choices. The dashboard displays
+the short codes. An empty selection pauses board collection.
+
+In the YAML editor, use `selected_boards` for the list of labels. If migration
+reports an invalid saved entry, select the intended boards in Configuration,
+save, and restart Lurker.
 
 ## Analytics
 

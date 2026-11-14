@@ -1,5 +1,5 @@
 name: Lurker
-version: "0.3.5"
+version: "0.3.6"
 slug: lurker
 description: Scrape 4chan boards on a schedule and browse sentiment wordclouds in Home Assistant.
 url: https://github.com/snorrea/ha-apps/tree/main/lurker
@@ -28,7 +28,7 @@ backup_exclude:
   - output/cache/nlp-features.sqlite3-shm
   - output/render-cache
 options:
-  boards:
+  selected_boards:
     - biz - Business & Finance
     - pol - Politically Incorrect
   interval_hours: 6
@@ -43,7 +43,9 @@ options:
   log_level: info
   notification_targets: []
 schema:
-  boards:
+  # Supervisor validates before startup. A new key lets old options migrate
+  # through the self-options API after the app starts.
+  selected_boards:
     - "list(3 - 3DCG|\
       a - Anime & Manga|\
       aco - Adult Cartoons|\
@@ -119,8 +121,7 @@ schema:
       wsr - Worksafe Requests|\
       x - Paranormal|\
       xs - Extreme Sports|\
-      y - Yaoi|\
-      3|a|aco|adv|an|b|bant|biz|c|cgl|ck|cm|co|d|diy|e|f|fa|fit|g|gd|gif|h|hc|his|hm|hr|i|ic|int|jp|k|lgbt|lit|m|mlp|mu|n|news|o|out|p|po|pol|pw|qst|r9k|s|s4s|sci|soc|sp|t|tg|toy|trash|trv|tv|u|v|vg|vip|vm|vmg|vp|vr|vrpg|vst|vt|w|wg|wsg|wsr|x|xs|y)"
+      y - Yaoi)"
   interval_hours: int(1,168)
   retention_days: int(1,365)
   history_retention_days: int(1,3650)
