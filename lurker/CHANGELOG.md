@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.8
+
+- Fix Storage panel hang with request timeout and slow-scan logs
+- Keep spaCy NLP cache effective on multi-board Pi schedules
+- Raise default NLP cache to 256 MiB with score-first eviction and stopword skip
+
 ## 0.3.7
 
 - Fix Home Assistant changelog entries for merged pull requests
