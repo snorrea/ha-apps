@@ -101,7 +101,9 @@ existing historical data. Keep /data/output/history.sqlite3 during upgrades.
 
 Upgrades that leave the measurement rules and inputs equivalent can continue
 using earlier samples in charts and Rising Topics. This includes the verified
-v0.3.4–v0.3.6 releases when their sampling and analysis settings match.
+v0.3.4–v0.3.6 releases when their sampling and analysis settings match, and
+the v0.3.8 change that stopped scoring stopword terms (those terms never
+entered topic history).
 
 
 ## Storage and concurrency (v0.3+)

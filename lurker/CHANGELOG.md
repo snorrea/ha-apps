@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.9
+
+- Restore analytics trends after stopword-score skip
+
 ## 0.3.8
 
 - Fix Storage panel hang with request timeout and slow-scan logs
