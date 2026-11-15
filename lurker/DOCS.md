@@ -27,13 +27,13 @@ Lurker spaces API requests at least 1.1 seconds apart across boards, including r
 | retention_days | 30 | Keep wordcloud images and summaries this long |
 | history_retention_days | 180 | Keep analytics snapshots this long (the database file is kept) |
 | max_threads | 200 | Threads sampled per board, most recently modified first |
-| request_delay_ms | 1100 | Minimum spacing between API requests; lower values are raised to 1100 |
+| request_delay_ms | 1100 | Minimum spacing between API requests; lower values are raised to 1100 quietly |
 | scrape_timeout_seconds | 10800 | Per-board timeout |
 | run_on_startup | true | Scrape once when the app starts |
 | log_level | info | debug, info, warning or error |
 | notification_targets | [] | Opted-in notify.mobile_app_... actions |
 
-The workers option from 0.2 is deprecated and ignored.
+The workers option from 0.2 is removed. Delete it from saved options if present.
 
 In **Configuration**, choose boards by code and name, for example `b - Random`.
 Lurker converts saved board lists to labels on first start after upgrading.

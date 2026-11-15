@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.10
+
+- Drain in-flight board on shutdown; remove workers option
+- Quietly clamp request\_delay\_ms below 1100
+
 ## 0.3.9
 
 - Restore analytics trends after stopword-score skip
