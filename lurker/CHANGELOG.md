@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.11
+
+- Cache storage usage after scrapes to stop panel timeouts
+
 ## 0.3.10
 
 - Drain in-flight board on shutdown; remove workers option

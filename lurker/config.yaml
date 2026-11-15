@@ -1,5 +1,5 @@
 name: Lurker
-version: "0.3.10"
+version: "0.3.11"
 slug: lurker
 description: Scrape 4chan boards on a schedule and browse sentiment wordclouds in Home Assistant.
 url: https://github.com/snorrea/ha-apps/tree/main/lurker
